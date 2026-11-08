@@ -37,7 +37,7 @@ const Conteudo = {
 
   CONTATOS: [
     { rotulo: "Instagram", link: "https://www.instagram.com/krypton9487" },
-    { rotulo: "TikTok", link: "https://www.tiktok.com/" },
+    { rotulo: "TikTok", link: "https://www.tiktok.com/@krypton.frc" },
     { rotulo: "YouTube", link: "https://www.youtube.com/@Krypton9487" },
     { rotulo: "E-mail", link: "mailto:krypton.frc@gmail.com" },
   ],
