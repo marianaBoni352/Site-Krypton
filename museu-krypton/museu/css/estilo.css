@@ -1234,3 +1234,36 @@ body.intro-visto .pular-intro {
   visibility: hidden;
   pointer-events: none;
 }
+
+/* ---- Página inicial: se adapta à tela de qualquer aparelho ------------------ */
+/* Tamanhos acompanham a largura e a altura da tela, para tudo caber sem scroll. */
+
+body[data-pagina="inicio"] .inicio {
+  height: 100vh;
+  height: 100dvh;
+  padding-top: clamp(16px, 8vh, 64px);
+  padding-bottom: clamp(56px, 14vh, 140px); /* espaço do rodapé */
+}
+
+body[data-pagina="inicio"] .inicio-titulo {
+  font-size: clamp(32px, min(14vw, 10vh), 72px);
+}
+
+body[data-pagina="inicio"] .inicio-equipe {
+  margin-top: clamp(6px, 2vh, 14px);
+  font-size: clamp(13px, 2.5vh, 18px);
+  letter-spacing: clamp(4px, 1.2vh, 9px);
+}
+
+body[data-pagina="inicio"] .menu ul {
+  margin-top: clamp(14px, 8vh, 76px);
+}
+
+body[data-pagina="inicio"] .menu a {
+  padding: clamp(3px, 1.2vh, 9px) 0;
+  font-size: clamp(15px, min(6vw, 3.6vh), 23px);
+}
+
+body[data-pagina="inicio"] .rodape {
+  position: fixed; /* fica sempre visível no pé da tela */
+}
