@@ -18,6 +18,8 @@
   const SEGURAR = 1.5;
   const DURACAO_DESVANECER = 800;
   const VOLUME = 0.8;
+  /** O arquivo tem uns 0,5 s de silêncio no começo: pulamos esse trecho para o som entrar junto com a decolagem. */
+  const INICIO_SOM = 0.45;
 
   const som = new Audio(ARQUIVO);
   som.preload = "auto";
@@ -32,6 +34,11 @@
       return;
     }
     iniciado = true;
+    try {
+      som.currentTime = INICIO_SOM;
+    } catch (erro) {
+      // Se o navegador não deixar pular, o som toca desde o começo.
+    }
     const promessa = som.play();
     if (promessa) {
       promessa.catch(() => {});
