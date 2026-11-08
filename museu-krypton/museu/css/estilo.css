@@ -1210,8 +1210,9 @@ body:not([data-pagina="inicio"]) .rodape {
     height: 100dvh;
     overflow: hidden;
   }
+}
 
-  .pular-intro {
+.pular-intro {
   position: fixed;
   right: max(16px, env(safe-area-inset-right));
   bottom: max(16px, env(safe-area-inset-bottom));
@@ -1232,6 +1233,4 @@ body.intro-visto .pular-intro {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-}
-
 }
