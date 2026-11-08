@@ -1204,12 +1204,12 @@ body:not([data-pagina="inicio"]) .rodape {
   .patro-texto p {
     text-align: left;
   }
+}
 
 /* Página inicial sem scroll */
-  body[data-pagina="inicio"] {
-    height: 100dvh;
-    overflow: hidden;
-  }
+body[data-pagina="inicio"] {
+  height: 100dvh;
+  overflow: hidden;
 }
 
 .pular-intro {
