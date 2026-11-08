@@ -447,6 +447,7 @@ function carregar() {
   const duracao = movimentoReduzido ? 300 : DURACAO_CARREGAMENTO;
   const comeco = performance.now();
   const passo = (agora) => {
+    if (pulou) return; // nova linha: para a animação se o usuário clicou em "pular introdução"
     const p = Math.min((agora - comeco) / duracao, fontesProntas ? 1 : 0.9);
     cheio.style.clipPath = `inset(${(1 - p) * 100}% 0 0 0)`;
     barra.style.transform = `scaleX(${p})`;
@@ -472,7 +473,16 @@ function carregar() {
     }
   };
   requestAnimationFrame(passo);
+  let pulou = false;
+  document.querySelector(".pular-intro").addEventListener("click", () => {
+    if (!pulou) return;
+    pulou = true;
+    abrirPagina(); // tira o carregador e mostra a página inicial
+    pularIntro(); // pula tbm a animação do menu inicial, se ainda estiver rolando
+    sessionStorage.setItem("museu-intro-pulou", "1"); //quando saí e não quer ver a intro dnv 
+  });
 }
+
 
 montarRodape();
 aplicarRota();
