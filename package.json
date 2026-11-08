@@ -1,0 +1,9 @@
+{
+  "name": "site-krypton",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Museu digital da equipe Krypton FRC #9487",
+  "scripts": {
+    "start": "npx --yes serve -l 8000 museu-krypton/museu"
+  }
+}

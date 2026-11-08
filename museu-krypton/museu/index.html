@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Krypton FRC #9487 — Museu</title>
+  <meta name="description" content="Museu digital da equipe Krypton FRC #9487: história, robôs, conquistas e áreas da equipe.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Krypton FRC #9487 — Museu">
+  <meta property="og:description" content="História, robôs, conquistas e áreas da equipe Krypton FRC #9487.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
+
+  <script src="js/conteudo.js" defer></script>
+  <script src="js/fundo.js" defer></script>
+  <script src="js/decolagem.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body class="carregando" data-pagina="inicio">
+
+  <!-- Desenhos reaproveitados em várias partes da página. -->
+  <svg class="definicoes" aria-hidden="true" focusable="false">
+    <defs>
+      <!-- O foguete da equipe. A ponta fica em (0,0); altura de 405 e largura de cerca de 260. -->
+      <g id="foguete">
+        <path id="foguete-meia" d="M-5 6 L-126 238 L-108 250 L-40 188 M-40 168 L-2 134 M-40 168 L-40 212 L-56 224"
+              fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+        <use href="#foguete-meia" transform="scale(-1 1)"/>
+        <path d="M-5 8 L5 8 L1.5 205 L-1.5 205 Z" fill="currentColor"/>
+        <path d="M-100 335 L-50 242 L-28 264 L0 218 L28 264 L50 242 L100 335 L32 286 L0 405 L-32 286 Z"
+              fill="currentColor"/>
+      </g>
+      <!-- Arco sobre o qual o nome KRYPTON é escrito (círculo de raio 900). -->
+      <path id="arco-logo" d="M -1.5 618.2 A 900 900 0 0 1 861.5 618.2"/>
+    </defs>
+  </svg>
+
+  <!-- Tela de carregamento: o foguete "enche" enquanto a página se prepara. -->
+  <div class="carregador" aria-hidden="true">
+    <div class="carregador-foguete">
+      <svg class="apagado" viewBox="-135 -8 270 420"><use href="#foguete"/></svg>
+      <svg class="cheio" viewBox="-135 -8 270 420"><use href="#foguete"/></svg>
+    </div>
+    <div class="carregador-barra"><span></span></div>
+    <div class="carregador-texto">
+      <span class="carregador-mensagem">Abrindo as portas do museu</span>
+      <span class="carregador-porcentagem">0%</span>
+    </div>
+  </div>
+
+  <!-- Fundo fixo: luz verde, névoa, logo e partículas. -->
+  <div class="fundo" aria-hidden="true">
+    <div class="fundo-luz"></div>
+    <div class="nevoa nevoa-a"></div>
+    <div class="nevoa nevoa-b"></div>
+    <svg class="logo" viewBox="0 0 860 640">
+      <g class="logo-foguete">
+        <use href="#foguete" transform="translate(430 24) scale(.95)"/>
+      </g>
+      <text class="logo-nome" dx="12"><textPath href="#arco-logo" startOffset="50%" text-anchor="middle">KRYPTON</textPath></text>
+      <text class="logo-sub" x="430" y="596" text-anchor="middle">FRC ROBOTICS TEAM</text>
+    </svg>
+    <div class="fundo-escuro"></div>
+    <canvas class="particulas"></canvas>
+  </div>
+
+  <main id="conteudo">
+    <!-- Página inicial -->
+    <section class="inicio" id="inicio" aria-labelledby="inicio-titulo">
+      <h1 class="inicio-titulo" id="inicio-titulo">Krypton</h1>
+      <p class="inicio-equipe"><span>FRC</span> <span>#9487</span></p>
+
+      <nav class="menu" aria-label="Seções do museu">
+        <ul>
+          <li style="--i: 0"><a href="#historia">Conhecer a história</a></li>
+          <li style="--i: 1"><a href="#robos">Visualizar robôs</a></li>
+          <li style="--i: 2"><a href="#premiacoes">Premiações e conquistas</a></li>
+          <li style="--i: 3"><a href="#areas">Conhecer as áreas</a></li>
+          <li style="--i: 4"><a href="#patrocinadores">Patrocinadores</a></li>
+          <li style="--i: 5"><a href="#first">Sobre a FIRST</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- Páginas internas, montadas por js/app.js a partir de js/conteudo.js -->
+    <section class="pagina" id="pagina" hidden></section>
+  </main>
+
+  <footer class="rodape" id="rodape">
+    <ul class="contatos"></ul>
+    <a class="botao-first" href="https://www.firstinspires.org" target="_blank" rel="noopener">FIRST</a>
+  </footer>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+  <noscript>
+    <p class="sem-script">Ative o JavaScript para visitar o museu da equipe Krypton.</p>
+  </noscript>
+</body>
+</html>
