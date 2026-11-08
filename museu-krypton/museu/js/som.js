@@ -8,8 +8,8 @@
 (function () {
   const corpo = document.body;
   const ARQUIVO = "assets/som/foguete.mp3";
-  /** Segundos, depois do fim do voo, em que a primeira escrita (KRYPTON) surge (ver estilo.css). */
-  const ATRASO_ESCRITAS = 1.7;
+  /** Segundos, depois do fim do voo, em que a escrita FRC ROBOTICS TEAM surge (ver estilo.css). */
+  const ATRASO_ESCRITAS = 2.4;
   const DURACAO_DESVANECER = 600;
   const VOLUME = 0.8;
 
