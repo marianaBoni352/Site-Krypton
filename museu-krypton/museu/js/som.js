@@ -1,16 +1,22 @@
+
 "use strict";
 
 /*
- * Som da abertura: toca com o foguete carregando e voando e para (com um
- * desvanecer curto) quando as escritas aparecem. Não altera nenhum outro código:
- * só observa as classes que o app.js já coloca no <body>.
+ * Som da abertura: começa sozinho quando o foguete decola, segue durante o voo e
+ * continua até depois de a escrita FRC ROBOTICS TEAM aparecer, quando desvanece.
+ * Se a pessoa pular a abertura (clique ou tecla), o som para.
+ * Não altera nenhum outro código: só observa as classes que o app.js e o
+ * decolagem.js já colocam na página.
  */
 (function () {
   const corpo = document.body;
+  const carregador = document.querySelector(".carregador");
   const ARQUIVO = "assets/som/foguete.mp3";
-  /** Segundos, depois do fim do voo, em que a escrita FRC ROBOTICS TEAM surge (ver estilo.css). */
-  const ATRASO_ESCRITAS = 2.4;
-  const DURACAO_DESVANECER = 600;
+  /** Segundos, depois do fim do voo, em que FRC ROBOTICS TEAM surge (ver estilo.css). */
+  const APARECE_FRC = 2.4;
+  /** Segundos extras de som depois de FRC ROBOTICS TEAM aparecer, antes de desvanecer. */
+  const SEGURAR = 1.5;
+  const DURACAO_DESVANECER = 800;
   const VOLUME = 0.8;
 
   const som = new Audio(ARQUIVO);
@@ -19,16 +25,27 @@
 
   let encerrado = false;
   let agendado = false;
+  let iniciado = false;
+
+  function tocar() {
+    if (encerrado || iniciado) {
+      return;
+    }
+    iniciado = true;
+    const promessa = som.play();
+    if (promessa) {
+      promessa.catch(() => {});
+    }
+  }
 
   function parar() {
     if (encerrado) {
       return;
     }
     encerrado = true;
-    removerGatilhos();
-    const inicio = performance.now();
+    const comeco = performance.now();
     const passo = () => {
-      const p = Math.min((performance.now() - inicio) / DURACAO_DESVANECER, 1);
+      const p = Math.min((performance.now() - comeco) / DURACAO_DESVANECER, 1);
       som.volume = VOLUME * (1 - p);
       if (p < 1) {
         setTimeout(passo, 30);
@@ -39,40 +56,27 @@
     passo();
   }
 
-  function tocar() {
-    if (encerrado || !som.paused) {
-      return;
-    }
-    const promessa = som.play();
-    if (promessa) {
-      promessa.catch(() => {});
-    }
-  }
-
-  // Os navegadores só liberam som depois de um toque ou tecla; se o automático
-  // for bloqueado, o som entra no primeiro toque ou tecla durante a abertura.
-  const gatilhos = ["pointerdown", "keydown", "touchstart"];
-  function aoInteragir() {
-    if (corpo.classList.contains("carregando")) {
-      tocar();
-    }
-  }
-  function removerGatilhos() {
-    gatilhos.forEach((nome) => document.removeEventListener(nome, aoInteragir, true));
-  }
-  gatilhos.forEach((nome) => document.addEventListener(nome, aoInteragir, true));
-
-  function atualizar() {
+  function verCorpo() {
     if (corpo.classList.contains("intro-visto")) {
+      // A pessoa pulou a abertura (ou ela terminou): o som para.
       parar();
     } else if (corpo.classList.contains("pronto") && !agendado) {
       agendado = true;
       const emInicio = corpo.dataset.pagina === "inicio";
-      setTimeout(parar, emInicio ? ATRASO_ESCRITAS * 1000 : 0);
+      setTimeout(parar, emInicio ? (APARECE_FRC + SEGURAR) * 1000 : 0);
     }
   }
 
-  new MutationObserver(atualizar).observe(corpo, { attributes: true, attributeFilter: ["class"] });
-  atualizar();
-  tocar();
+  function verCarregador() {
+    if (carregador && carregador.classList.contains("decolando")) {
+      tocar();
+    }
+  }
+
+  new MutationObserver(verCorpo).observe(corpo, { attributes: true, attributeFilter: ["class"] });
+  if (carregador) {
+    new MutationObserver(verCarregador).observe(carregador, { attributes: true, attributeFilter: ["class"] });
+  }
+  verCarregador();
+  verCorpo();
 })();
