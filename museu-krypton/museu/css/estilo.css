@@ -18,8 +18,8 @@
     0 0 32px rgba(77, 255, 124, 0.25);
   --suave: cubic-bezier(0.33, 1, 0.68, 1);
 
-  /* Escala que faz um quadro de 1280x720 cobrir a janela, como o fundo. */
-  --s: max(calc(100vw / 1280), calc(100vh / 720));
+  /* Escala que faz um quadro de 1280x720 caber inteiro na janela, mantendo a proporção. */
+  --s: min(calc(100vw / 1280), calc(100vh / 720));
 
   color-scheme: dark;
 }
@@ -203,9 +203,8 @@ body.pronto .fundo {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.84) 5%, transparent 34%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.78), transparent 18%),
-    radial-gradient(ellipse 62% 96% at 63% 42%,
+    radial-gradient(ellipse 70% 96% at 50% 45%,
       rgb(18, 65, 30), rgb(11, 39, 17) 25%, rgb(6, 21, 11) 50%, rgb(4, 10, 6) 75%, rgb(3, 7, 5));
 }
 
@@ -245,11 +244,11 @@ body.pronto .nevoa {
 
 .logo {
   position: absolute;
-  left: calc(50% + 170 * var(--s));
-  top: calc(50% - 360 * var(--s));
+  left: 50%;
+  top: 50%;
   width: calc(860 * var(--s));
   height: calc(640 * var(--s));
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   overflow: visible;
   color: var(--branco);
   filter: drop-shadow(0 0 3px rgba(77, 255, 124, 0.9)) drop-shadow(0 0 14px rgba(77, 255, 124, 0.55))
@@ -1174,6 +1173,7 @@ body:not([data-pagina="inicio"]) .rodape {
     width: min(110vw, 760px);
     height: auto;
     aspect-ratio: 860 / 640;
+    transform: translateX(-50%);
     opacity: 0.4;
   }
 
