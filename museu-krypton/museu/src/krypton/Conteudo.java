@@ -29,8 +29,6 @@ final class Conteudo {
     static final String LINK_FIRST = "https://www.firstinspires.org";
 
     static final List<Contato> CONTATOS = List.of(
-            new Contato("Técnico(a): (62) 99267-6751", "tel:+5562992676751"),
-            new Contato("Técnico(a): (62) 98311-9188", "tel:+5562983119188"),
             new Contato("Instagram", "https://www.instagramKryptonFRC#9487.com/"),
             new Contato("Email", "https://www.krypton.frc@gmail.com.com/"),
             new Contato("TikTok", "https://www.tiktokkrypton.frc.com/"),
