@@ -133,7 +133,7 @@ const Conteudo = {
       "• Miguel Ramos — Engenharia de software.",
       "• Guilherme Ferreira - Engenharia de software.",
       "• Guilherme Pessoni - Engenharia Mecatrõnica.",
-      "• Nicollas Luz - CiÊncias de Computação.",
+      "• Nicollas Luz - Ciências de Computação.",
       "• Hugo Hiroshi - Engenharia Mecânica.",
       "• Daniel Watanabe - Sistema da informação.",
       "• Aninha - Engenharia química.",
