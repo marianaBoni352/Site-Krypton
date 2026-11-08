@@ -1,4 +1,3 @@
-
 const Conteudo = {
 
   // ---- Patrocinadores ------------------------------------------------------
@@ -37,12 +36,11 @@ const Conteudo = {
   LINK_FIRST: "https://www.firstinspires.org",
 
   CONTATOS: [
-    { rotulo: "Técnico(a): (11) 99999-0000", link: "tel:+5511999990000" },
-    { rotulo: "Técnico(a): (11) 98888-0000", link: "tel:+5511988880000" },
-    { rotulo: "Instagram", link: "https://www.instagram.com/" },
+    { rotulo: "Instagram", link: "https://www.instagram.com/krypton9487" },
     { rotulo: "Facebook", link: "https://www.facebook.com/" },
     { rotulo: "TikTok", link: "https://www.tiktok.com/" },
-    { rotulo: "YouTube", link: "https://www.youtube.com/" },
+    { rotulo: "YouTube", link: "https://www.youtube.com/@Krypton9487" },
+    { rotulo: "E-mail", link: "mailto:krypton.frc@gmail.com" },
   ],
 
   // ---- História ----------------------------------------------------------
@@ -132,14 +130,33 @@ const Conteudo = {
       "A comunicação é parte central da cultura da equipe: ela fortalece a identidade da Krypton e amplia o impacto do trabalho realizado.",
     ] },
     { rotulo: "Mentores", titulo: "Mentores", paragrafos: [
-      "• Prof. Daniel Costa — mecânica e desenvolvimento de design.",
-      "• Eng. Beatriz Silva — eletrônica, testes e integração.",
+      "• Miguel Ramos — Engenharia de software.",
+      "• Guilherme Ferreira - Engenharia de software.",
+      "• Guilherme Pessoni - Engenharia Mecatrõnica.",
+      "• Nicollas Luz - CiÊncias de Computação.",
+      "• Hugo Hiroshi - Engenharia Mecânica.",
+      "• Daniel Watanabe - Sistema da informação.",
+      "• Aninha - Engenharia química.",
+      "• Gabriel - Engenharia Civil.",
+      "• Nicolas - Técnico.",
+      "• Fernando - Técnico.",
     ] },
     { rotulo: "Integrantes", titulo: "Integrantes", paragrafos: [
       "## Temporada atual",
-      "• Giovanna — mecânica",
-      "• Lucas — eletrônica",
-      "• Pedro — programação",
+      "## Área de AE",
+      "• Laís — AE.",
+      "• Marcella — AE.",
+      "• Carol — AE.",
+      "• Leticia — AE.",
+      "• Victor — AE.",
+      "## Área de MCI",
+      "• Lethcia— MCI.",
+      "• Thauany— MCI.",
+      "• Garcia — MCI.",
+      "• Saul — MCI.",
+      "• João Pedro — MCI.",
+      "• Mariana— MCI.",
+      "• Paulo— MCI.",
     ] },
   ],
 
